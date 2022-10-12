@@ -35,9 +35,11 @@
     <input type="checkbox" name="" id="cookies"> He leído y aceptado el contrato <br>
     <div class="error"></div>
     <input type="button" value="Saludar" id="boton">
+    <input type="button" value="Añadir" id="add">
     <br>
     <script>
         document.getElementById("boton").addEventListener('click',llamar, false)
+        document.getElementById("add").addEventListener('click',anyadirImg,false);
         function llamar(){
 
             var arrtxt= document.getElementsByTagName('input')
@@ -71,13 +73,10 @@
                 console.log("checkbox funca", i)
                 error[i].innerHTML=""
             } else errorciyo(error, i)
-            
-            anyadirImg()
         }
         function anyadirImg() {
             var loriyo =document.createElement('img')
             loriyo.src="https://images.pexels.com/photos/2317904/pexels-photo-2317904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-
             document.body.appendChild(loriyo)
         }
         function errorciyo(error,i) {
