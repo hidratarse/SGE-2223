@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivo de prueba</title>
+</head>
+<body>
+    <script>
+       /*marca = window.prompt("Introduce la marca del coche")
+       modelo = window.prompt("Introduce el modelo del coche")
+       descuento=0;
+       marca=='ford'||parseInt(1234)&&modelo=='fiesta'?descuento=5:descuento=0||marca=='ford'||parseInt(1234)&&modelo=='focus'?descuento=10:descuento=0
+       
+       document.write("El descuento es de "+descuento)*/
+    
+       /*dia = window.prompt("Introduce el día de la semana")
+       switch (dia.toLowerCase()) {
+        case 'lunes':
+        case 'martes':
+        case 'miércoles':
+        case 'jueves':
+        case 'viernes':
+            document.write('No es fin de semana')
+            break;
+        case 'sábado' || 'domingo' :
+            document.write('Es fin de semana');    
+            break;
+        default:
+            document.write('no válido');    
+            break;
+       }*/
+
+       acum=0;
+       nota=0;
+
+       var asignatura = {"PSP":0,"SGE":0,"AD":0,"PDM":0,"DI":0,"Ingles":0}
+       
+       for (const key in asignatura) {
+        nota = parseInt(window.prompt("Introduce la nota de la asignatura "+key))
+        asignatura[key]=nota
+        document.writeln(key+": " +asignatura[key])
+        acum+=asignatura[key]
+        }
+        
+        media = acum/6
+
+        document.write(media)
+
+       function aprobado(media) {
+        if (media>=9) {
+        return 'sobresaliente'
+       } else {
+            if (media>=7 && media<9) {
+                return 'notable'
+            } else {
+                if (media<7&&media>=5) {
+                    return'aprobado'
+                }else{
+                    return'suspenso'
+                }
+            }
+        }
+       }
+
+    </script>
+</body>
+</html>

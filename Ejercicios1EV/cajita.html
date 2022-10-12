@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="intro">Introduce tu nombre </div>
+    <input type="text" id="nombre">
+<!--<select name="colores" id="colores">
+        <option value="rojo">Rojo</option>
+        <option value="verde">Verde</option>
+        <option value="azul">Azul</option>
+    </select>-->
+    <input type="checkbox" name="caja" id="caja">
+    <label for="caja">Negrita</label>
+    <label for="caja">Cursiva</label>
+    <label for="caja">Tachado</label>
+    <input type="button" value="enviar" id="boton">
+    <script>
+        document.getElementById('boton').addEventListener('click',llamar, false)
+        function llamar(){
+            document.getElementById('intro').innerHTML=document.getElementById('nombre').value
+            /*switch (document.getElementById('colores').value) {
+                case 'azul':
+                    document.getElementById('intro').style.color="blue"
+                    break;
+                case 'verde':
+                    document.getElementById('intro').style.color="green"
+                    break;
+                case 'rojo':
+                    document.getElementById('intro').style.color="red"
+                    break; 
+            }*/
+            switch (getElementById('caja').value) {
+                case value:
+                    
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
