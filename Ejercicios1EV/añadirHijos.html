@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+ <html lange="en">
+     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AÑADIR CAMPOS</title>
+     </head>
+     
+     <body>
+        <p id="txt"> Introduce tu nombre <input type="text">
+        <div class="error"></div> 
+        <p id="txt"> Introduce tu apellido <input type="text"><br/>
+        <div class="error"></div> 
+        <p id="txt"> Introduce tu edad <input type="text"><br/>
+        <div class="error"></div> 
+        <p id="txt"> Introduce tu contraseña <input type="text"><br/>
+        <div class="error"></div>
+        <select name="sexo">
+            <option value="-">-</option> 
+            <option value="M">M</option> 
+            <option value="H">H</option> 
+            <option value="NS/NC">NS/NC</option> 
+        </select>
+        <div class="error"></div>
+        <input type="checkbox"> He leído y acepto el contrato
+        <div id="cookie"></div>
+        <input type="radio" name="foto" id="gato">GATO
+        <input type="radio" name="foto" id="perro">PERRO
+        <input type="radio" name="foto" id="loro">LORO
+        <input type="button" value="Saludar" id="boton">
+        <input type="button" value="Añadir" id="add">
+        <script>
+            document.getElementById('boton').addEventListener('click',enBlanco,false);
+            document.getElementById('add').addEventListener('click',añadir,false);
+            
+            function enBlanco(){
+                
+                let inp=document.getElementsByTagName('input')
+                let err= document.getElementsByClassName('error')
+               // valida los campos de texto
+               for(i=0;i<inp.length-1;i++){
+                    if(inp[i].value==""){
+                        err[i].innerHTML="Este campo está vacio"
+                        err[i].style.color="red"
+                    }
+                }
+                //valida select
+                if(document.getElementsByName('sexo')[0].value=="-"){
+                    err[err.length-1].innerHTML="No has seleccionado una opción"
+                    err[err.length-1].style.color="red"
+                }
+
+                //valida checkbox
+                var isChecked=inp[inp.length-2].checked
+                if(!isChecked){
+                            document.getElementById('cookie').innerHTML="No marcaste la casilla"
+                            document.getElementById('cookie').style.color="red"
+                        }  
+            }
+           
+            function añadir(){
+                //añade el nombre
+                const divi = document.createElement('div');
+                const texto = document.createTextNode(document.getElementsByTagName('input')[0].value);
+                divi.appendChild(texto);
+                document.body.appendChild(divi);
+            
+                /*// añade michi
+                const imagen = document.createElement('img');
+                imagen.src="./gato.jpg"
+                document.body.appendChild(imagen);
+                
+                
+                // añade imagenes de radio
+                /*gato=document.createElement('img')
+                perro=document.createElement('img')
+                loro=document.createElement('img')
+                gato.src="gato.jpg"
+                perro.src="perros.jpg"
+                loro.src="loro.jpg"
+                if(document.querySelector('#gato').checked==true)
+                     document.body.appendChild(gato)
+                else if(document.querySelector('#perro').checked==true)
+                    document.body.appendChild(perro)
+                else if(document.querySelector('#loro').checked==true)
+                    document.body.appendChild(loro)
+                */
+                
+                //hipervinculos en imagenes
+                /*gato=document.createElement('img')
+                gatoLink=document.createElement('a')
+                perro=document.createElement('img')
+                perroLink=document.createElement('a')
+                loro=document.createElement('img')
+                loroLink=document.createElement('a')
+                gatoLink.href="https://es.wikipedia.org/wiki/Felis_silvestris_catus"
+                gato.src="gato.jpg"
+                perroLink.href="https://es.wikipedia.org/wiki/Canis_familiaris"
+                perro.src="perros.jpg"
+                loroLink.href="https://es.wikipedia.org/wiki/Psittacoidea"
+                loro.src="loro.jpg"
+                if(document.querySelector('#gato').checked==true)
+                     document.body.appendChild(gatoLink).appendChild(gato)
+                else if(document.querySelector('#perro').checked==true)
+                    document.body.appendChild(perroLink).appendChild(perro)
+                else if(document.querySelector('#loro').checked==true)
+                    document.body.appendChild(loroLink).appendChild(loro)
+                /*
+                //hipervinculos en imagenes con ARRAY
+                var x=0
+                let animales=[gato,perro,loro]
+                    //animales[0].src=["gato.jpg","perros.jpg","loro.jpg"]
+                let fotos=["gato.jpg","perros.jpg","loro.jpg"]    
+                let animalesA=[gatoA,perroA,loroA]
+                 animalesA.href=["https://es.wikipedia.org/wiki/Felis_silvestris_catus","https://es.wikipedia.org/wiki/Canis_familiaris","https://es.wikipedia.org/wiki/Psittacoidea"]
+                for(i=0,i=0;i<animales.length-1;i++){
+                    animales[i]=document.createElement('img')
+                    animalesA[i]=document.createElement('a')
+                    animales[i].src=fotos[i]
+                    animalesA[i].href=enlaces[i]
+                    if(document.getElementsByClassName("foto")[i].checked==true){
+                        x=i
+                    }
+                }   
+                document.body.appendChild(animalesA[x]).appendChild(animales[x])
+                */
+           }
+        </script>
+     </body>
+</html>
