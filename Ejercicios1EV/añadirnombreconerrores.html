@@ -29,9 +29,10 @@
     <input type="checkbox" name="" id="cookies"> He leído y aceptado el contrato <br>
     <div class="error"></div>
     <input type="button" value="Saludar" id="boton">
-    <br>
+    <input type="button" value="Añadir" id="add">
     <script>
-        document.getElementById("boton").addEventListener('click',llamar, false)
+        document.getElementById("boton").addEventListener('click',llamar, false);
+        document.getElementById("add").addEventListener('click',anyadir,false);
         function llamar(){
 
             var arrtxt= document.getElementsByTagName('input')
@@ -65,17 +66,15 @@
                 console.log("checkbox funca", i)
                 error[i].innerHTML=""
             } else errorciyo(error, i)
-            
-        
-            anyadir()
         }
 
         function anyadir() {
             const parrafo = document.createElement('p')
             const texto = document.createTextNode(document.getElementsByTagName('input')[0].value)
             parrafo.appendChild(texto)
-            document.body.appendChild(texto)
+            document.body.appendChild(parrafo)
         }
+
         function errorciyo(error,i) {
                 error[i].innerHTML="ERROR"
                 error[i].style.color="red"
