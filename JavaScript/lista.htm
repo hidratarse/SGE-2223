@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Introduce texto</p><input type="text" id="edittext">
+    <div id="lista"></div>
+    <input type="radio" name="opciones" id="addfirst">add first
+    <input type="radio" name="opciones" id="addlast">add last
+    <input type="radio" name="opciones" id="removefirst">remove first
+    <input type="radio" name="opciones" id="removelast">remove last
+    <input type="button" value="GO!" id="go">
+    <script>
+        document.getElementById("go").addEventListener('click',choice,false)
+
+        function choice() {
+            var cuerpo = document.body
+            var texto = document.body.getElementById("edittext").textCon
+            if (cuerpo.getElementById("addfirst").checked) {
+                cuerpo.appendChild(texto)
+            } else if (cuerpo.getElementById("addfirst").checked) {
+                
+            } else if (cuerpo.getElementById("addlast").checked) {
+                
+            } else if (cuerpo.getElementById("removefirst").checked) {
+                
+            } else if (cuerpo.getElementById("removelast").checked) {
+                
+            }
+        }
+    </script>
+</body>
+</html>

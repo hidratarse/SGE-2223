@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Introduce tú nombre</p>
+    <input type="text">
+    <div class="error"></div>
+    <p>Introduce tú apellido</p>
+    <input type="text">
+    <div class="error"></div>
+    <p>Introduce tú edad </p>
+    <input type="text">
+    <div class="error"></div>
+    <p>Introduce tú contraseña</p>
+    <input type="text"> <br>
+    <div class="error"></div>
+    <select name="genero" id="">
+        <option value="-">-</option>
+        <option value="H">HOME</option>
+        <option value="M">MUHER</option>
+        <option value="nose">nose</option>
+    </select><br>
+    <input type="radio" id="gato" name="gato" value="G">
+    <label for="gato">Gato</label>
+    <input type="radio" id="perro" name="gato" value="G">
+    <label for="perro">Perro</label>
+    <input type="radio" id="loro" name="gato" value="G">
+    <label for="loro">Loro</label>
+    <div class="error"></div>
+    <input type="checkbox" name="" id="cookies"> He leído y aceptado el contrato <br>
+    <div class="error"></div>
+    <input type="button" value="Saludar" id="boton">
+    <input type="button" value="Añadir" id="add">
+    <input type="button" value="borrar" id="delete">
+    <br>
+    <script>
+        document.getElementById("boton").addEventListener('click',llamar, false)
+        document.getElementById("add").addEventListener('click',anyadirImg,false);
+        document.getElementById('delete').addEventListener('click',borrarImg,false)
+        function llamar(){
+            var arrtxt= document.getElementsByTagName('input')
+            var select = document.getElementsByTagName('select')[0].value
+            var cookies = document.getElementById('cookies').checked
+            var error= document.getElementsByClassName('error')
+            var i=0;
+            for (i; i < arrtxt.length-1; i++) {
+                console.log(arrtxt[i].value)
+                if (arrtxt[i].value==="") {
+                    console.log("funcan los espacios en blanco ", i)
+                    errorciyo(error,i)
+                }else{
+                    console.log("funca normal", i)
+                    error[i].innerHTML=""
+                }
+            }
+            switch (select) {
+                case "-":
+                    console.log("-")
+                    errorciyo(error,i-1)
+                    break;
+                case "H":
+                    console.log("Hombre")
+                    break;
+                case "M":
+                    console.log("Mujer")
+                    break;
+            }
+            if (cookies) {
+                console.log("checkbox funca", i)
+                error[i].innerHTML=""
+            } else errorciyo(error, i)
+        }
+        function anyadirImg() {
+            var loriyo =document.createElement('img')
+            var loroLink=document.createElement('a')
+            var gatiyo = document.createElement('img')
+            var gatoLink=document.createElement('a')
+            var perriyo = document.createElement('img')
+            var perroLink=document.createElement('a')
+
+            gatoLink.href="https://es.wikipedia.org/wiki/Felis_silvestris_catus"
+            perroLink.href="https://es.wikipedia.org/wiki/Canis_familiaris"
+            loroLink.href="https://es.wikipedia.org/wiki/Psittacoidea"
+            loroLink.target=" "
+            loriyo.src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/disney-iago-aladdin-film-1552504633.jpg?crop=1xw:1xh;center,top&resize=480:*"
+            gatiyo.src="https://images.bauerhosting.com/legacy/empire-images/reviews_films/55e9103d018810630f2faba0/kahabFJD9Z7HeX2RWf3guF8PDEz.jpg?q=80&w=440"
+            perriyo.src="https://townsquare.media/site/442/files/2018/03/lady-and-tramp.jpg?w=980&q=75"
+            perriyo.style.heigth="300px"
+            perriyo.style.width="300px"
+
+            if (document.getElementById('loro').checked) {
+                document.body.appendChild(loroLink).appendChild(loriyo)
+            }else if (document.getElementById('perro').checked) {
+                document.body.appendChild(perroLink).appendChild(perriyo)
+            } else if (document.getElementById('gato').checked){
+                document.body.appendChild(gatoLink).appendChild(gatiyo)
+                document.body.lastChild.setAttribute('id','gato2');
+            }
+        }
+        function borrarImg(){
+            //var gato=document.getElementById("gato2")
+            //document.body.removeChild(gato)
+            var mijo = document.body.lastChild
+            document.body.removeChild(mijo)
+        }
+
+
+        function errorciyo(error,i) {
+                error[i].innerHTML="ERROR"
+                error[i].style.color="red"
+                console.log("Se produjo un error", i)
+            }
+    </script>
+</body>
+</html>
