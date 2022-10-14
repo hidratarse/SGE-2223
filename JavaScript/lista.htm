@@ -48,15 +48,14 @@
         }
 
         function removeFirst() {
-            queue = document.getElementById('lista'); // Get the list whose id is queue.
-            var elements = queue.getElementsByTagName('li'); // Get HTMLCollection of elements with the li tag name.
-            queue.removeChild(elements[0]);
+            cola = document.getElementById('lista'); 
+            var elements = cola.getElementsByTagName('li');
+            cola.removeChild(elements[0]);
         }
 
         function removeLast() {
-            queue = document.getElementById('lista');
-            var elements = queue.getElementsByTagName('li');
-            queue.removeChild(elements[elements.length-1]);
+            cola = document.getElementById('lista');
+            cola.removeChild(cola.lastChild);
         }
     </script>
 </body>
