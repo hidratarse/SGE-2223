@@ -18,17 +18,18 @@
         document.getElementById("go").addEventListener('click',choice,false)
 
         function choice() {
-            var cuerpo = document.body
-            var texto = document.body.getElementById("edittext").textCon
-            if (cuerpo.getElementById("addfirst").checked) {
-                cuerpo.appendChild(texto)
-            } else if (cuerpo.getElementById("addfirst").checked) {
+            var texto = document.getElementById("edittext").value
+            if (document.getElementById("addfirst").checked) {
+                /*r queue = document.getElementById('queue'); // Get the list whose id is queue.
+                var elements = queue.getElementsByTagName('li'); // Get HTMLCollection of elements with the li tag name.
+                queue.removeChild(elements[0]); */// Remove the child from queue that is the first li element. 
+            } else if (document.getElementById("addfirst").checked) {
                 
-            } else if (cuerpo.getElementById("addlast").checked) {
+            } else if (document.getElementById("addlast").checked) {
                 
-            } else if (cuerpo.getElementById("removefirst").checked) {
+            } else if (document.getElementById("removefirst").checked) {
                 
-            } else if (cuerpo.getElementById("removelast").checked) {
+            } else if (document.getElementById("removelast").checked) {
                 
             }
         }
