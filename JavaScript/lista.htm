@@ -13,6 +13,8 @@
     <input type="radio" name="opciones" id="addlast">add last
     <input type="radio" name="opciones" id="removefirst">remove first
     <input type="radio" name="opciones" id="removelast">remove last
+    <input type="radio" name="opciones" id="replacefirst">replace first
+    <input type="radio" name="opciones" id="replacelast">replace last
     <input type="button" value="GO!" id="go">
     <script>
         document.getElementById("go").addEventListener('click',choice,false)
@@ -28,10 +30,16 @@
                     addLast(texto, nodoPadre)
                     break;
                 case "removefirst":
-                    removefirst()
+                    removeFirst()
                     break;
                 case "removelast":
                     removeLast()
+                    break;
+                case "replacefirst":
+                    replaceFirst(texto, nodoPadre)
+                    break;
+                case "replacelast":
+                    replaceLast(texto, nodoPadre)
                     break;
             }
         }
@@ -57,7 +65,18 @@
             cola = document.getElementById('lista');
             cola.removeChild(cola.lastChild);
         }
-        //Falta por hacer replace first y replacelast
+
+        function replaceFirst(texto, nodoPadre) {
+            var lista
+            lista.innerHTML=texto
+            nodoPadre.replaceChild(lista,nodoPadre.firstChild)
+        }
+
+        function replaceLast(texto, nodoPadre){
+            var lista
+            lista.innerHTML=texto
+            nodoPadre.replaceChild(lista,nodoPadre.lastChild)
+        }
     </script>
 </body>
 </html>
