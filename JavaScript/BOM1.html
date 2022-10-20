@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>X</p>
+    <input type="text" id="X">
+    <P>Y</P>
+    <input type="text" id="y">
+    <br>
+    <input type="checkbox" name="resize" value="r">
+    <label for="resize">Resize</label>
+    <input type="checkbox" name="move" value="r">
+    <label for="move">move</label>
+    <br>
+    <input type="button" id="go" value="go">
+</body>
+<script>
+    var ventana=window.open("", "", "width=400, height=200");
+    var Y = document.getElementById("y").value
+    var X = document.getElementById("X").value
+    document.getElementById('vent').addEventListener('click',crearVentana,false)
+    document.getElementById('go').addEventListener('click',llamar(ventana), false)
+  
+    function llamar(ventana){
+        
+        console.log(X)
+        
+        console.log(Y)
+        ventana.window.moveTo(X,Y)
+    }
+
+</script>
+</html>
