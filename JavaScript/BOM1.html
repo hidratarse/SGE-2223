@@ -12,7 +12,7 @@
     <P>Y</P>
     <input type="text" id="y">
     <br>
-    <input type="checkbox" name="resize" value="r">
+    <input type="checkbox" id="resize" value="r">
     <label for="resize">Resize</label>
     <input type="checkbox" name="move" value="r">
     <label for="move">move</label>
@@ -23,15 +23,14 @@
     var ventana=window.open("", "", "width=400, height=200");
     var Y = document.getElementById("y").value
     var X = document.getElementById("X").value
-    document.getElementById('vent').addEventListener('click',crearVentana,false)
     document.getElementById('go').addEventListener('click',llamar(ventana), false)
   
     function llamar(ventana){
-        
-        console.log(X)
-        
-        console.log(Y)
-        ventana.window.moveTo(X,Y)
+        if (document.getElementById('resize').checked) {
+            ventana.resizeTo(X,Y)
+        } else {
+            
+        }
     }
 
 </script>
