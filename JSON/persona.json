@@ -1,0 +1,32 @@
+{
+    "nombre":"Miguel Ángel Segovia Freeman",
+    "edad": 25,
+    "sexo":"Varón",
+    "dirección":{
+        "calle":"Guareña",
+        "localidad":"Madrid",
+        "puerta":8,
+        "CP":"28044"
+    },
+    "asignaturas":[{
+        "nombre":"SGE",
+        "curso":"DAM",
+        "horas":5
+    },
+    {
+        "nombre":"Acceso a Datos",
+        "curso":"DAM",
+        "horas":6
+    }],
+    "telefonos":["626089187","6984395867"],
+    "centros_estudios":[{
+        "nombre":"Gamo Diana",
+        "localidad":"Madrid"
+    },
+    {
+        "nombre":"IES.Juan de la Cierva",
+        "localidad":"Madrid"
+    }
+    ],
+    "coche":true
+}

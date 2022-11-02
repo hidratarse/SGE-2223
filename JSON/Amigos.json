@@ -1,0 +1,36 @@
+[{
+    "nombre":"Knekro",
+    "edad":80,
+    "equipo de futbol":"getafe",
+    "trabaja":false,
+    "telefono":"626089187",
+    "estudios":{
+        "familia_profesional":"Mecanica",
+        "nivel":"medio",
+        "lugar":"albacete"
+    }
+},
+{
+    "nombre":"Juan Alberto",
+    "edad":30,
+    "equipo de futbol":"Málaga F.C",
+    "trabaja":false,
+    "telefono":"626089187",
+    "estudios":{
+        "familia_profesional":"Biología",
+        "nivel":"alto",
+        "lugar":"Málaga"
+    }
+},
+{
+    "nombre":"Juan Alberto",
+    "edad":30,
+    "equipo de futbol":"Málaga F.C",
+    "trabaja":false,
+    "telefono":"626089187",
+    "estudios":{
+        "familia_profesional":"Biología",
+        "nivel":"alto",
+        "lugar":"Málaga"
+    }
+}]

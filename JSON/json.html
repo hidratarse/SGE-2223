@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    const freeman={
+    "nombre": "freeman",
+    "edad": 25,
+    "idiomas": [
+        "eng",
+        "spa",
+        "fra"
+    ],
+   
+}
+const materias={
+    "SGE":2,
+    "FH":1,
+    "MME":1
+ }
+
+texto=JSON.stringify(freeman)
+//console.log(freeman)
+//console.log(texto)
+parse=JSON.parse(texto)
+console.log(parse)
+console.log(`soy ${freeman.nombre} y tengo ${freeman.edad} años`)
+console.log(freeman.idiomas[1])
+freeman.asignatura=materias
+console.log(freeman)
+</script>
+<body>
+    
+</body>
+</html>

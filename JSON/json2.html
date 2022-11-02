@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    persona={
+    "nombre":"Miguel Ángel Segovia Freeman",
+    "edad": 25,
+    "sexo":"Varón",
+    "dirección":{
+        "calle":"Guareña",
+        "localidad":"Madrid",
+        "puerta":8,
+        "CP":"28044"
+    },
+    "asignaturas":[{
+        "nombre":"SGE",
+        "curso":"DAM",
+        "horas":5
+    },
+    {
+        "nombre":"Acceso a Datos",
+        "curso":"DAM",
+        "horas":6
+    }],
+    "telefonos":["626089187","6984395867"],
+    "centros_estudios":[{
+        "nombre":"Gamo Diana",
+        "localidad":"Madrid"
+    },
+    {
+        "nombre":"IES.Juan de la Cierva",
+        "localidad":"Madrid"
+    }
+    ],
+    coche:true
+}
+amigos=[{
+    "nombre":"Knekro",
+    "edad":80,
+    "equipo de futbol":"getafe",
+    "trabaja":false,
+    "telefono":"626089187",
+    "estudios":{
+        "familia_profesional":"Mecanica",
+        "nivel":"medio",
+        "lugar":"albacete"
+    }
+},
+{
+    "nombre":"Juan Alberto",
+    "edad":30,
+    "equipo de futbol":"Málaga F.C",
+    "trabaja":false,
+    "telefono":"626089187",
+    "estudios":{
+        "familia_profesional":"Biología",
+        "nivel":"alto",
+        "lugar":"Málaga"
+    }
+},
+{
+    "nombre":"Juan Alberto",
+    "edad":30,
+    "equipo de futbol":"Málaga F.C",
+    "trabaja":false,
+    "telefono":"626089187",
+    "estudios":{
+        "familia_profesional":"Biología",
+        "nivel":"alto",
+        "lugar":"Málaga"
+    }
+}]
+persona.amigos=amigos
+console.log(persona)
+delete persona.amigos[2]
+console.log(persona)
+</script>
+<body>
+    
+</body>
+</html>
