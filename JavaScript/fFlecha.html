@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name"> Nombre <br>
+    <input type="text" id="age"> Edad <br>
+    <input type="text" id="team"> Equipo <br>
+    <input type="button" id="saludo" value="Nombre"> <br>
+    <input type="button" id="edad" value="Edad"><br>
+    <input type="button" id="fuchebol" value="Equipo"><br>
+</body>
+<script>
+    var nombre=document.getElementById("name")
+    var edad=document.getElementById("age")
+    var equipo=document.getElementById("team")
+    var año=8;
+
+    document.getElementById('saludo').addEventListener("click",()=>alert("Hola "+nombre.value),false)
+    document.getElementById('edad').addEventListener("click",(año)=>alert("Tu edad en 2030 "+(parseInt(edad.value)+año)),false)
+    document.getElementById('fuchebol').addEventListener("click",()=>alert("Tu equipo de futbol "+equipo.value),false)
+</script>
+</html>
