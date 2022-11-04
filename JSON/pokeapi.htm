@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            float:right;
+            margin-right:800px;
+            width: 15%;
+            height: 15%;
+        }
+    </style>
+</head>
+<body>
+    <p><h1>POKEDEX</h1></p>
+    <p>Pokemon</p>
+    <select name="pokemones" id="select">
+        <option value="-">¡Selecciona!</option>
+        <option value="pikachu">Pikachu</option>
+        <option value="lucario">Lucario</option>
+        <option value="sirfetchd">Sirfetchd</option>
+        <option value="dragonite">Dragonite</option>
+        <option value="dracovish">Dracovish</option>
+        <option value="gengar">Gengar</option>
+    </select>
+    <img src="" alt="" id="sprite">
+    <p>Nombre</p>
+    <div id="name"></div>
+    <p>Habilidades</p>
+    <div id="ability"></div>
+    <p>Stats</p>
+    <div id="stats"></div>
+    <p>Tipo</p>
+    <div id="type"></div>
+    <input type="button" value="GOOOOOO" id="go">
+</body>
+<script>
+    document.getElementById('go').addEventListener('click',llamada,false)
+    function llamada(){
+        var api = 'https://pokeapi.co/api/v2/pokemon/'+document.getElementById('select').value
+        fetch(api).then((response) => response.json())
+        .then((data) =>{
+            document.getElementById('name').innerHTML=data.name
+            document.getElementById('ability').innerHTML=data.abilities[0].ability.name+"/"+data.abilities[1].ability.name
+            stats(data)
+            typing(data)
+            document.getElementById('sprite').src=data.sprites.front_default
+        });
+    }
+    function stats(data){
+        var stats = data.stats
+        var cadena="";
+        for (let i = 0; i < 6; i++) {
+            cadena=cadena+stats[i].stat.name+": "+stats[i].base_stat+" / "
+        }
+        document.getElementById("stats").innerHTML=cadena;
+    }
+    function typing(data){
+        if (data.types.length==1) {
+            document.getElementById('type').innerHTML=data.types[0].type.name
+        }else{
+            document.getElementById('type').innerHTML=data.types[0].type.name+'/'+data.types[1].type.name
+        }
+    }
+</script>
+</html>
