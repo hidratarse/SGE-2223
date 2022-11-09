@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><h1>Cambio de divisas</h1></p>
+    <select name="" id="divisasFrom">
+    </select>
+    <input type="text" name="" id="ini">
+    <select name="" id="divisasTo">
+    </select> =
+    <span id="result"></span><br>
+    <input type="button" value="Convertir" id="go">
+</body>
+<script>
+    document.getElementById('go').addEventListener('click',llamada,false)
+
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '4dcb3f5d14mshdbe9834c39c0aa9p1a8358jsn4e9252009b4a',
+            'X-RapidAPI-Host': 'currency-exchange.p.rapidapi.com'
+        }
+    };
+
+    fetch('https://currency-exchange.p.rapidapi.com/listquotes', options)
+        .then(response => response.json())
+        .then(response =>{
+            setOpciones(response,"divisasFrom")
+            setOpciones(response,"divisasTo")
+        } ).catch(err => console.error(err));
+    
+    function llamada() {
+        var opciones = document.getElementsByTagName('select')
+        var valor = document.getElementById('result').value
+
+        fetch('https://currency-exchange.p.rapidapi.com/exchange?to='+opciones[1].value+'&from='+opciones[0].value+'&q='+valor, options)
+	    .then(response => response.json())
+        .then(response => {
+            document.getElementById('result').innerHTML=response
+        })
+	    .catch(err => console.error(err));
+
+    }
+    
+    function setOpciones(data, id) {
+        var select = document.getElementById(id);
+        for (let i = 0; i < data.length; i++) {
+            var option = document.createElement('option')
+            option.nodeValue=data[i]
+            option.innerHTML=data[i]
+            select.appendChild(option)
+        }
+    }
+    </script>
+</html>
