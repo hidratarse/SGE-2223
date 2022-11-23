@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <table id="teibol"></table>
+    <input type="text" id="id">
+    <input type="text" id="name">
+    <input type="text" id="salary"><br>
+    <div class="btn-group btn-group-lg" role="group" aria-label="Large button group" alig>
+        <input type="button" value="ADD" id="add" class="btn btn-outline-dark">
+        <input type="button" value="EDIT" class="btn btn-outline-dark">
+        <input type="button" value="DEL" class="btn btn-outline-dark">
+        <input type="button" value="SHOW_BY_ID" class="btn btn-outline-dark">
+        <input type="button" value="SHOW_ALL" id="show_all" class="btn btn-outline-dark">
+    </div>
+</body>
+
+<script >
+
+    enseñaTodo()
+
+    document.getElementById('show_all').addEventListener('click',enseñaTodo,false)
+    document.getElementById('add').addEventListener('click',insert,false)
+
+    function enseñaTodo() {
+        const cors='http://cors-anywhere.herokuapp.com/'
+        const url='https://nodejs-mysql-restapi-production-d8bd.up.railway.app/api/employees'
+        const options = {
+            method: 'GET',
+        }
+        fetch(cors+url,options)
+        .then((response) => response.json())
+        .then((data) =>{
+        setOpciones(data,'teibol')});
+    };
+
+    function insert() {
+        var ide=document.getElementById('id').value
+        var nom=document.getElementById('name').value    
+        var salar=document.getElementById('salary').value        
+
+        let _datos = {
+            id: ide,
+            name: nom, 
+            salary:salar
+        }
+
+        const cors='http://cors-anywhere.herokuapp.com/'
+        const url='https://nodejs-mysql-restapi-production-d8bd.up.railway.app/api/employees'
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(_datos),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        fetch(cors+url,options)
+        .then((response) => response.json())
+        .then((data) =>{
+            console.log('enviando '+_datos)
+        });
+    }
+
+    function setOpciones(data, id) {
+        var tabla = document.getElementById(id);
+        while (tabla.firstChild) {
+            tabla.removeChild(tabla.firstChild);
+        }
+        var tr = document.createElement('tr')
+        tabla.appendChild(tr)
+        var th1=document.createElement('th')
+        var th2=document.createElement('th')
+        var th3=document.createElement('th')
+        th1.innerHTML='ID'
+        th2.innerHTML='NAME'
+        th3.innerHTML='SALARIO'
+        tr.appendChild(th1)
+        tr.appendChild(th2)
+        tr.appendChild(th3)
+        for (let i = 0; i < data.length; i++) {
+            var terre = document.createElement('tr')
+            tabla.appendChild(terre)
+            var tede1 = document.createElement('td')
+            var tede2 = document.createElement('td')
+            var tede3 = document.createElement('td')
+            tede1.innerHTML=data[i].id
+            tede2.innerHTML=data[i].name
+            tede3.innerHTML=data[i].salary
+            tabla.appendChild(terre)
+            terre.appendChild(tede1)
+            terre.appendChild(tede2)
+            terre.appendChild(tede3)
+        }
+    }
+</script>
+</html>
