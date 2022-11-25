@@ -14,9 +14,9 @@
     <input type="text" id="salary"><br>
     <div class="btn-group btn-group-lg" role="group" aria-label="Large button group" alig>
         <input type="button" value="ADD" id="add" class="btn btn-outline-dark">
-        <input type="button" value="EDIT" class="btn btn-outline-dark">
-        <input type="button" value="DEL" class="btn btn-outline-dark">
-        <input type="button" value="SHOW_BY_ID" class="btn btn-outline-dark">
+        <input type="button" value="EDIT" id="edit" class="btn btn-outline-dark">
+        <input type="button" value="DEL" id="delete" class="btn btn-outline-dark">
+        <input type="button" value="SHOW_BY_ID" id="porId" class="btn btn-outline-dark">
         <input type="button" value="SHOW_ALL" id="show_all" class="btn btn-outline-dark">
     </div>
 </body>
@@ -27,6 +27,28 @@
 
     document.getElementById('show_all').addEventListener('click',enseñaTodo,false)
     document.getElementById('add').addEventListener('click',insert,false)
+    document.getElementById('edit').addEventListener('click',edit,false)
+    document.getElementById('delete').addEventListener('click',deleteo,false)
+    document.getElementById('porId').addEventListener('click',enseñaId,false)
+
+    function enseñaId(){
+        
+        var ide=prompt("INTRODUCE EL ID")
+        var nom=document.getElementById('name').value    
+        var salar=document.getElementById('salary').value        
+
+        const cors='http://cors-anywhere.herokuapp.com/'
+        const url='https://nodejs-mysql-restapi-production-d8bd.up.railway.app/api/employees/'+ide
+        const options = {
+            method: 'GET',
+        }
+        fetch(cors+url,options)
+        .then((response) => response.json())
+        .then((data) =>{
+            console.log(data)
+            setOpciones(data,'teibol')
+        });
+    }
 
     function enseñaTodo() {
         const cors='http://cors-anywhere.herokuapp.com/'
@@ -39,6 +61,49 @@
         .then((data) =>{
         setOpciones(data,'teibol')});
     };
+
+
+
+    function deleteo(){
+        var ide=document.getElementById('id').value       
+
+        const cors='http://cors-anywhere.herokuapp.com/'
+        const url='https://nodejs-mysql-restapi-production-d8bd.up.railway.app/api/employees/'+ide
+        const options = {
+            method: 'DELETE',
+        }
+        fetch(cors+url,options)
+        .then((response) => response.json())
+        .then((data) =>console.log("BORRANDO MI REY")
+        );
+    }
+
+    function edit(){
+        var ide=document.getElementById('id').value
+        var nom=document.getElementById('name').value    
+        var salar=document.getElementById('salary').value        
+
+        let _datos = {
+            id:ide,
+            name: nom, 
+            salary:salar
+        }
+
+        const cors='http://cors-anywhere.herokuapp.com/'
+        const url='https://nodejs-mysql-restapi-production-d8bd.up.railway.app/api/employees/'+ide+''
+        const options = {
+            method: 'PATCH',
+            body: JSON.stringify(_datos),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        fetch(cors+url,options)
+        .then((response) => response.json())
+        .then((data) =>{
+            console.log('enviando '+_datos)
+        });
+    }
 
     function insert() {
         var ide=document.getElementById('id').value
@@ -83,15 +148,38 @@
         tr.appendChild(th1)
         tr.appendChild(th2)
         tr.appendChild(th3)
-        for (let i = 0; i < data.length; i++) {
+        
+        if (data instanceof Array) {
+            console.log("Esto es un array")
+            for (let i = 0; i < data.length; i++) {
+                var ancla = document.createElement('a')
+                var terre = document.createElement('tr')
+                tabla.appendChild(terre)
+                var tede1 = document.createElement('td')
+                var tede2 = document.createElement('td')
+                var tede3 = document.createElement('td')
+                tede1.appendChild(ancla)
+                ancla.setAttribute("href","recibeID.html?ID="+data[i].id)
+                ancla.innerHTML=data[i].id
+                tede2.innerHTML=data[i].name
+                tede3.innerHTML=data[i].salary
+                tabla.appendChild(terre)
+                terre.appendChild(tede1)
+                terre.appendChild(tede2)
+                terre.appendChild(tede3)
+            }
+        }else{
+            var ancla = document.createElement('a')
             var terre = document.createElement('tr')
             tabla.appendChild(terre)
             var tede1 = document.createElement('td')
             var tede2 = document.createElement('td')
             var tede3 = document.createElement('td')
-            tede1.innerHTML=data[i].id
-            tede2.innerHTML=data[i].name
-            tede3.innerHTML=data[i].salary
+            tede1.appendChild(ancla)
+            ancla.setAttribute("href","recibeID.html?ID="+data.id)
+            ancla.innerHTML=data.id
+            tede2.innerHTML=data.name
+            tede3.innerHTML=data.salary
             tabla.appendChild(terre)
             terre.appendChild(tede1)
             terre.appendChild(tede2)
