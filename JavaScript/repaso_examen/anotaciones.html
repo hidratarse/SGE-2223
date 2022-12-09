@@ -1,0 +1,51 @@
+<!--
+    const cors='http://cors-anywhere.herokuapp.com/'
+        const url='https://nodejs-mysql-restapi-production-d8bd.up.railway.app/api/employees'
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(_datos),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        fetch(cors+url,options)
+        .then((response) => response.json())
+        .then((data) =>{
+            console.log('enviando '+_datos)
+        });
+
+        function addFirst(texto, nodoPadre) {
+            var lista=document.createElement('li')
+            lista.innerHTML=texto
+            nodoPadre.insertBefore(lista,nodoPadre.firstChild)
+        }
+
+        function addLast(texto, nodoPadre){
+            var lista=document.createElement('li')
+            lista.innerHTML=texto
+            nodoPadre.appendChild(lista)
+        }
+
+        function removeFirst() {
+            cola = document.getElementById('lista'); 
+            var elements = cola.getElementsByTagName('li');
+            cola.removeChild(elements[0]);
+        }
+
+        function removeLast() {
+            cola = document.getElementById('lista');
+            cola.removeChild(cola.lastChild);
+        }
+
+        function replaceFirst(texto, nodoPadre) {
+            var lista=document.createElement('li')
+            lista.innerHTML=texto
+            nodoPadre.replaceChild(lista,nodoPadre.firstChild)
+        }
+
+        function replaceLast(texto, nodoPadre){
+            var lista =document.createElement('li')
+            lista.innerHTML=texto
+            nodoPadre.replaceChild(lista,nodoPadre.lastChild)
+        }
+-->

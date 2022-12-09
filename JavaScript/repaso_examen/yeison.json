@@ -1,0 +1,21 @@
+[{
+    "NOMBRE":"Miguel",
+    "APELLIDO":"Freeman",
+    "EDAD":"25",
+    "TLF":"626980781",
+    "ASIGNATURAS":[{
+            "NOMBRE":"ACCESO A DATOS",
+            "NOTA":"10"
+        },
+        {
+            "NOMBRE":"PROGRAMACION MULTIMEDIA",
+            "NOTA":"10"
+        }],
+    "VIVIENDA":{
+        "LOCALIDAD":"MADIRD",
+        "CALLE":"FALSA 123",
+        "POBLACION":"MADIRD",
+        "COD_POSTAL":"28034"
+    },
+    "COCHE":"NO"
+}]

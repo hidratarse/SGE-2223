@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="nombre">
+    <input type="text" name="apellido">
+        <input type="checkbox" value="Azul">Azul</input>
+        <input type="checkbox" value="Rojo">Rojo</input>
+        <input type="checkbox" value="Verde">Verde</input>
+    <input type="button" value="enviar">
+</body>
+<script>
+    var inputs=document.getElementsByTagName("input")
+    inputs[5].addEventListener("click",validado1,false)
+
+    function validado1() {
+        if (inputs[0].value===""||inputs[1].value==="") {
+            alert("campos nulos")
+        }else{
+            if (inputs['0'].value.length<5||inputs['0'].value.length>45) {
+                alert("ERROR de longitud")
+            }
+        }
+        var valido=false;
+        for (let index = 2; index < 5; index++) {
+            if (inputs[index].checked) {
+                valido=true
+            }
+        }
+        if (!valido) {
+            alert("hay que marcar uno")
+        }
+    }
+</script>
+</html>
